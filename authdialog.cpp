@@ -1,5 +1,6 @@
 #include "authorizationdialog.h"
 
+
 AuthorizationDialog::AuthorizationDialog(QWidget *parent) : QDialog(parent) {
 	codec = QTextCodec::codecForLocale();
 
@@ -10,7 +11,6 @@ AuthorizationDialog::AuthorizationDialog(QWidget *parent) : QDialog(parent) {
 }
 
 AuthorizationDialog::~AuthorizationDialog() {
-
 }
 
 void AuthorizationDialog::authorize() {
@@ -26,7 +26,7 @@ void AuthorizationDialog::authorize() {
 	}
 	
 	QSqlQuery query = DataBaseProvider::getQuery();
-    query.prepare("SELECT id, password FROM user WHERE login = ?");
+	query.prepare("SELECT id, password FROM user WHERE login = ?");
 	query.addBindValue(login);
 	bool success = DataBaseProvider::execQuery(query);
 

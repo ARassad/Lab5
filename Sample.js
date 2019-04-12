@@ -24,7 +24,6 @@ export class Sample extends Component {
 	
 	checkAnswer(event) {
 		
-		//console.log(event.target.parentNode.previousSibling.lastChild.value);
 		const value = event.target.parentNode.previousSibling.lastChild.value;
 		
 		if ( !this.state.canSolve ) {
@@ -34,7 +33,6 @@ export class Sample extends Component {
 		else if ( value === this.props.sample.answer ) {
 				
 			//сохранить в у usera в список решенных
-			
 			fetch('/api/samples/addSolvedSample', {
 										method: 'POST',
 										body: JSON.stringify({ sampleId: this.props.sample._id}),
